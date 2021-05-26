@@ -1,20 +1,21 @@
 import pygal
 from die import Die
 
-# Create 1 D6.append()
+# Create 2 D6.append()
 die_1 = Die()
+die_2 = Die()
 
 # make some rolls, and store results in a list.
 
-results = [die_1.roll() for roll_num in range(1000)]
+results = [die_1.roll() + die_2.roll() for roll_num in range(1001)]
 
 print(results)
 
-# Analyze the results.append()
-max_result = die_1.num_sides
-frequencies = [results.count(value) for value in range(1, max_result+1)]
+# Analyze the results.
+max_result = die_1.num_sides + die_2.num_sides
+frequencies = [results.count(value) for value in range(2, max_result+1)]
 
-"""for value in range(1, max_result+1):
+"""for value in range(2, max_result+1):
     frequency = results.count(value)
     frequencies.append(frequency)
 """
@@ -23,12 +24,12 @@ frequencies = [results.count(value) for value in range(1, max_result+1)]
 hist = pygal.Bar()
 
 hist.title = "Results of rolling two D6 1000 times."
-hist.x_labels = [i for i in range(1, 13)]
+hist.x_labels = [i for i in range(2, 13)]
 hist.x_title = "Result"
 hist.y_title = "Frequency of Result"
 
 hist.add('D6 + D6', frequencies)
-hist.render_to_file('die_visual.svg')
+hist.render_to_file('die_visual_2die.svg')
 
 
 squares = [i * i for i in range(10)]
