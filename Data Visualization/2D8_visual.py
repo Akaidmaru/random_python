@@ -19,7 +19,7 @@ frequencies = [results.count(value) for value in range(2, max_result+1)]
 hist = pygal.Bar()
 
 hist.title = "Results of rolling two D8 1000 times."
-hist.x_labels = [i for i in range(2, 17)]
+hist.x_labels = [i for i in range(2, max_result+1)]
 hist.x_title = "Result"
 hist.y_title = "Frequency of Result"
 
