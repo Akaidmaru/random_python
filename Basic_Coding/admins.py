@@ -48,7 +48,7 @@ class Admin(User):
 		So child attributes.
 		"""
 		super().__init__(first_name, last_name, age, weight,
-		 height)
+		height)
 		self.privileges = Privileges()
 
 
