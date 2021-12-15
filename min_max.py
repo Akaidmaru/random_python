@@ -1,3 +1,4 @@
+
 # 1
 def min_max(lst):
     min_num = min(lst)
