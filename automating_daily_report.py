@@ -28,21 +28,20 @@ with open('C:/users/IA/Desktop/Littleton/CALLS.txt', encoding= 'utf8') as f:
 	lines = f.readlines()
 	
 	# Create a counter using enumerate so i can read each line and also split each line with a whitepase to get lists
-	for count, line in enumerate(lines, start=1):
+	
+	ws.cell(row=1, column=1).value = 'DATE'
+	ws.cell(row=1, column=2).value = 'START CALL TIME'
+	ws.cell(row=1, column=3).value = 'END CALL TIME'
+	ws.cell(row=1, column=4).value = 'TELEPHONE'
+	ws.cell(row=1, column=5).value = 'CLAIM NO'
+	ws.cell(row=1, column=6).value = 'EX/NEW'
+	ws.cell(row=1, column=7).value = 'NOTES'
+
+	for count, line in enumerate(lines, start=2):
 		new_list = line.split(' ')
 
 		# This creates the header of the xlsx.
-		if len(new_list) == 1:
-			ws.cell(row=count, column=1).value = 'DATE'
-			ws.cell(row=count, column=2).value = 'START CALL TIME'
-			ws.cell(row=count, column=3).value = 'END CALL TIME'
-			ws.cell(row=count, column=4).value = 'TELEPHONE'
-			ws.cell(row=count, column=5).value = 'CLAIM NO'
-			ws.cell(row=count, column=6).value = 'EX/NEW'
-			ws.cell(row=count, column=7).value = 'NOTES'
-
-		# If the lenght of the list splitted is == 3.
-		elif len(new_list) == 3:
+		if len(new_list) == 3:
 			if 'EXT' in new_list[1]:
 				ws.cell(row=count, column=2).value = new_list[0]
 				ws.cell(row=count, column=2).alignment = alignment_center
@@ -106,6 +105,7 @@ with open('C:/users/IA/Desktop/Littleton/CALLS.txt', encoding= 'utf8') as f:
 			ws.cell(row=count, column=2).alignment = alignment_center
 
 			ws.cell(row=count, column=3).value = new_list[-1]
+			print(f'This is element missing: {new_list[-1]}')
 			ws.cell(row=count, column=3).alignment = alignment_center
 
 			ws.cell(row=count, column=4).value = new_list[1]
@@ -124,7 +124,6 @@ with open('C:/users/IA/Desktop/Littleton/CALLS.txt', encoding= 'utf8') as f:
 	today = date.today()
 
 	ws['A2'] = today.strftime("%m/%d/%Y")
-	print(today.strftime("%m/%d/%Y"))
 
 	# Filling
 	ws['A1'].fill = fill_pattern
@@ -158,4 +157,4 @@ with open('C:/users/IA/Desktop/Littleton/CALLS.txt', encoding= 'utf8') as f:
 	ws['A2'].alignment = alignment_center
 
 	# Saving Workbook
-	wb.save('C:/Users/IA/Desktop/automated_report.xlsx')
+	wb.save(f'C:/Users/IA/Desktop/automated_report_{today.strftime("%m-%d-%Y")}.xlsx')
