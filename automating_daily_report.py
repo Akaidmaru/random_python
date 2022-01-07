@@ -105,7 +105,6 @@ with open('C:/users/IA/Desktop/Littleton/CALLS.txt', encoding= 'utf8') as f:
 			ws.cell(row=count, column=2).alignment = alignment_center
 
 			ws.cell(row=count, column=3).value = new_list[-1]
-			print(f'This is element missing: {new_list[-1]}')
 			ws.cell(row=count, column=3).alignment = alignment_center
 
 			ws.cell(row=count, column=4).value = new_list[1]
@@ -158,3 +157,5 @@ with open('C:/users/IA/Desktop/Littleton/CALLS.txt', encoding= 'utf8') as f:
 
 	# Saving Workbook
 	wb.save(f'C:/Users/IA/Desktop/automated_report_{today.strftime("%m-%d-%Y")}.xlsx')
+
+print(f'Report has been created successfully!')
