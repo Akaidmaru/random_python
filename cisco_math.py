@@ -72,11 +72,55 @@
 
 # print(f"The tax is: {tax} thalers.")
 
-year = 1580
+# year = 1580
 
-if year < 1582:
-    print("Not within the Gregorian calendar period.")
-elif year % 4 != 0 and year % 400 != 0:
-    print("Common year")
-else:
-    print("Leap Year")
+# if year < 1582:
+#     print("Not within the Gregorian calendar period.")
+# elif year % 4 != 0:
+#     print("Common Year")
+# elif year % 100 != 0:
+#     print("Leap Year")
+# elif year != 400:
+#     print("Common Year")
+# else:
+#     print("Leap Year")
+
+# secret_number = 777
+# guess_number = int(input("""
+# +================================+
+# | Welcome to my game, muggle!    |
+# | Enter an integer number        |
+# | and guess what number I've     |
+# | picked for you.                |
+# | So, what is the secret number? |
+# +================================+
+# """))
+
+
+# while secret_number != guess_number:
+#     print("""
+# +================================+
+# | Ha ha! You're stuck in my loop.|
+# +================================+
+# """)
+#     guess_number = int(input("""
+# +================================+
+# | Try to guess it again!         |
+# +================================+
+# """))
+
+# print("""
+# +======================================+
+# | Well done, muggle! You are free now! |
+# +======================================+
+# """)
+
+""" import time
+
+for number in range(1, 6):
+    print(f"{number} Mississippi.")
+    time.sleep(1)
+
+print("Ready or not, here i come!") """
+
+

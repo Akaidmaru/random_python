@@ -17,37 +17,37 @@
  * - Consulta las reglas del juego si tienes dudas sobre el sistema de puntos.
 '''
 
+def tennis_match(sequence):
 
-sequence = ['P1', 'P1', 'P2', 'P2', 'P1', 'P2', 'P1', 'P1']
-points = ['Love', '15', '30', '40']
+    points = ['Love', '15', '30', '40']
 
-count_p1 = 0
-count_p2 = 0
-finished = False
+    count_p1 = 0
+    count_p2 = 0
+    finished = False
 
-for element in sequence:
-    if element == 'P1':
-        count_p1 += 1
-    elif element == 'P2':
-        count_p2 += 1
-        
-    if count_p1 >= 3 and count_p2 >= 3:
-        if not finished and abs(count_p1 - count_p2) <= 1:
-            if count_p1 == count_p2:
-                print('Deuce')
-            elif count_p1 > count_p2:
-                print('Advantage P1')
-            elif count_p2 > count_p1:
-                print('Advantage P2')
+    for element in sequence:
+        if element == 'P1':
+            count_p1 += 1
+        elif element == 'P2':
+            count_p2 += 1
+            
+        if count_p1 >= 3 and count_p2 >= 3:
+            if not finished and abs(count_p1 - count_p2) <= 1:
+                if count_p1 == count_p2:
+                    print('Deuce')
+                elif count_p1 > count_p2:
+                    print('Advantage P1')
+                elif count_p2 > count_p1:
+                    print('Advantage P2')
+            else:
+                finished = True
         else:
-            finished = True
-    else:
-        if count_p1 < 4 and count_p2 < 4:
-            print(f'{points[count_p1]} - {points[count_p2]}')
-        else:
-            finished = True
+            if count_p1 < 4 and count_p2 < 4:
+                print(f'{points[count_p1]} - {points[count_p2]}')
+            else:
+                finished = True
 
-if count_p1 > count_p2:
-    print('Player 1 has won!')
-else:
-    print('Player 2 has won!')
+    if count_p1 > count_p2:
+        return print('Player 1 has won!')
+    elif count_p1 < count_p2:
+        return print('Player 2 has won!')

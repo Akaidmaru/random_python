@@ -28,5 +28,3 @@ class Employee:
     @salary.setter
     def salary(self, new_salary):
         self._password = new_salary
-
-e = Employee('Jill', 'feb31', 5000)
